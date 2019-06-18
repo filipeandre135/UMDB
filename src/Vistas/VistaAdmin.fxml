@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="603.0" prefWidth="1097.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controladores.ControladorAdmin">
+  <children>
+    <TabPane prefHeight="576.0" prefWidth="1097.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+      <tabs>
+        <Tab text="Filmes">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Separator layoutX="211.0" orientation="VERTICAL" prefHeight="490.0" prefWidth="6.0" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                <TableView id="table_filmes" fx:id="tabelaFilmes" prefHeight="524.0" prefWidth="857.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0">
+                  <columns>
+                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Id">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="350.0" minWidth="150.0" prefWidth="200.0" text="Titulo">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="nome" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="175.0" minWidth="75.0" prefWidth="75.0" text="Ano">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="ano" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="175.0" minWidth="80.0" prefWidth="100.0" text="Audiencia">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="audiencia" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Duração">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="duracao" />
+                      </cellValueFactory>
+                    </TableColumn>
+                  </columns>
+                </TableView>
+                <Label layoutX="58.0" layoutY="22.0" prefHeight="16.0" prefWidth="103.0" text="Gestão de Filmes" />
+                <Button id="addEscola" layoutX="30.0" layoutY="83.0" mnemonicParsing="false" onAction="#adicionarFilme" prefWidth="174.0" text="Adicionar Filme" />
+                <Separator layoutX="17.0" layoutY="136.0" prefWidth="200.0" />
+                <Button fx:id="btVerDetalhes" disable="true" layoutX="30.0" layoutY="168.0" mnemonicParsing="false" onAction="#verDetalhes" prefWidth="174.0" text="Ver detalhes" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Actores">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Separator layoutX="211.0" orientation="VERTICAL" prefHeight="490.0" prefWidth="6.0" AnchorPane.bottomAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                <TableView id="table_actores" fx:id="tabelaActores" prefHeight="413.0" prefWidth="897.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="59.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="61.0" text="Id">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nome">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="nome" />
+                      </cellValueFactory>
+                    </TableColumn>
+                  </columns>
+                </TableView>
+                <Label layoutX="48.0" layoutY="22.0" prefHeight="16.0" prefWidth="119.0" text="Gestão de Actores" />
+                <TextField id="nomeActor" fx:id="txtNomeActor" layoutX="14.0" layoutY="62.0" prefHeight="26.0" prefWidth="189.0" promptText="Nome" />
+                <Button layoutX="72.0" layoutY="97.0" mnemonicParsing="false" onAction="#adicionaActor" text="Adicionar" />
+                <Label layoutX="230.0" layoutY="22.0" prefHeight="16.0" prefWidth="53.0" text="Filme:" />
+                <ComboBox id="comboBox_filmesactor" fx:id="cbSeleccionaFilmeActor" layoutX="292.0" layoutY="17.0" onAction="#listarFilmesActor" prefHeight="26.0" prefWidth="220.0" promptText="Selecionar Filme" />
+                <Separator layoutX="14.0" layoutY="176.0" prefWidth="200.0" />
+                <Button fx:id="btAddActorFilme" layoutX="39.0" layoutY="276.0" mnemonicParsing="false" onAction="#associaActorFilme" text="Adicionar actor a filme" />
+                <TextField fx:id="txtIdFilmeActor" layoutX="14.0" layoutY="200.0" prefWidth="200.0" promptText="ID Filme" />
+                <TextField fx:id="txtIdActor" layoutX="14.0" layoutY="237.0" prefWidth="200.0" promptText="ID Actor" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Realizadores">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Separator layoutX="203.0" layoutY="2.0" orientation="VERTICAL" prefHeight="538.0" prefWidth="6.0" />
+                <TableView id="table_realizadores" fx:id="tabelaRealizadores" layoutX="255.0" layoutY="56.0" prefHeight="471.0" prefWidth="857.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="84.0" text="Id">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="311.0" text="Nome">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="nome" />
+                      </cellValueFactory>
+                    </TableColumn>
+                  </columns>
+                </TableView>
+                <Label layoutX="229.0" layoutY="18.0" prefHeight="16.0" prefWidth="53.0" text="Filme :" />
+                <ComboBox id="" fx:id="cbSeleccionaFilmeRealizador" layoutX="290.0" layoutY="14.0" onAction="#listarFilmesRealizador" prefHeight="26.0" prefWidth="220.0" promptText="Selecionar Filme" />
+                <TextField id="" fx:id="txtNomeRealizador" layoutX="13.0" layoutY="79.0" prefHeight="26.0" prefWidth="190.0" promptText="Nome" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="34.0" prefHeight="22.0" prefWidth="188.0" text="Gestão de Realizadores" textAlignment="CENTER" />
+                <Button fx:id="btAddRealizador" layoutX="73.0" layoutY="117.0" mnemonicParsing="false" onAction="#adicionaRealizador" text="Adicionar" />
+                <Separator layoutX="9.0" layoutY="160.0" prefWidth="200.0" />
+                <TextField fx:id="txtIdRealizador" layoutX="9.0" layoutY="215.0" prefWidth="200.0" promptText="ID Realizador" />
+                <TextField fx:id="txtIdFilmeRealizador" layoutX="9.0" layoutY="181.0" prefWidth="200.0" promptText="ID Filme" />
+                <Button fx:id="btAddRealizadorFillme" layoutX="26.0" layoutY="252.0" mnemonicParsing="false" onAction="#associaRealizadorFilme" text="Adicionar realizador a filme" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Utilizadores">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Separator layoutX="210.0" layoutY="0.0" orientation="VERTICAL" prefHeight="540.0" />
+                <TableView id="tabela_utilizadores" fx:id="tabelaUtilizadores" layoutX="240.0" layoutY="30.0" prefHeight="471.0" prefWidth="590.0">
+                  <columns>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="52.0" text="id">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                      </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Username">
+                      <cellValueFactory>
+                        <PropertyValueFactory property="sid" />
+                      </cellValueFactory>
+                    </TableColumn>
+                  </columns>
+                </TableView>
+                <Label layoutX="28.0" layoutY="22.0" text="Gestão de Utilizadores" />
+                <TextField fx:id="txtIdUtilizador" layoutX="14.0" layoutY="67.0" prefWidth="126.0" promptText="id" text="" />
+                <Button fx:id="btBloqUser" layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#toggleUser" prefWidth="165.0" text="Bloquear/Desbloquear" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Estatísticas">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label layoutX="46.0" layoutY="45.0" text="Número de utilizadores" />
+                <Label fx:id="nutil" layoutX="192.0" layoutY="45.0" prefWidth="62.0" text="numero" />
+                <Label layoutX="46.0" layoutY="75.0" text="Número de filmes" />
+                <Label fx:id="nfilme" layoutX="192.0" layoutY="75.0" prefWidth="62.0" text="numero" />
+                <Label layoutX="381.0" layoutY="53.0" text="Número de actores" />
+                <Label fx:id="nactor" layoutX="527.0" layoutY="53.0" prefWidth="62.0" text="numero" />
+                <Label layoutX="381.0" layoutY="81.0" text="Número de realizadores" />
+                <Label fx:id="nrealizador" layoutX="527.0" layoutY="81.0" prefWidth="62.0" text="numero" />
+                <Label layoutX="46.0" layoutY="104.0" text="Média de rating global" />
+                <Label fx:id="nrating" layoutX="192.0" layoutY="104.0" prefWidth="62.0" text="numero" />
+                <TableView fx:id="tabelaMedia" layoutX="46.0" layoutY="142.0" prefHeight="364.0" prefWidth="606.0">
+                  <columns>
+                    <TableColumn prefWidth="75.0" text="ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="306.0" text="Título">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nome"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" text="Rating">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="rating"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" text="nº Comentários">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="comentarios"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <Label fx:id="labelData" layoutY="6.0" text="Aqui vai estar a data num formato muito longo!" AnchorPane.leftAnchor="5.0" />
+    <Label fx:id="labelUser" layoutY="6.0" text="Olá, Utilizador!" AnchorPane.rightAnchor="5.0" />
+  </children>
+</AnchorPane>
